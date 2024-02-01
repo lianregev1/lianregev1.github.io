@@ -45,9 +45,11 @@ body{
         text-align-last: center;
     }
     
-    p {
-        border: 1px dashed black;
+    a {
+        color: #666666;
+        text-decoration: none; /* Remove underline from all links */
     }
+
     a:hover {
         background-color: #f0a2ff; /* Change the text color when hovered */
         text-decoration: underline; /* Add an underline when hovered */
@@ -63,9 +65,11 @@ body{
     }
     
     footer{
-        background: #BBBBBB;
         height:100px;
         clear: both;
+        width: 10%;
+
+        display: inline;
     }
     
     img{
