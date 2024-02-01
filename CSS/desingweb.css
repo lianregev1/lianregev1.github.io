@@ -30,9 +30,9 @@ body{
     }
     
     section{
-        display:inline-block;
-        width:30%;
+        width: 20%;
         margin-right: 2%;
+        display: inline-block;
         float: right;
     }
     
