@@ -1,0 +1,93 @@
+body{
+    direction:rtl;
+    background:#ffae4a;
+    margin:5%;
+    font-size: 150%;
+    font-family: Arial, "Times New Roman", serif;
+    }
+    
+    header{
+        background: #e65a5a;
+        text-align: center;
+        padding-bottom: 15px;
+    }
+    
+    h1{
+        color: #f0a2ff;
+        
+    }
+    
+    nav{
+        font-variant: small-caps;	
+        font-size: 150%;
+    }
+    
+    h2{
+        color: #f0a2ff;
+        background: #e65a5a;
+        text-align-last: center;
+        width: 250px;
+    }
+    
+    section{
+        display:inline-block;
+        width:30%;
+        margin-right: 2%;
+        float: right;
+    }
+    
+    .border {
+        background-color: rgb(173, 230, 197);
+        width: 300px;
+        border: 15px solid rgb(234, 0, 255);
+        padding: 10px;
+        margin: 25px;
+        text-align-last: center;
+    }
+    
+    p {
+        border: 1px dashed black;
+    }
+    a:hover {
+        background-color: #f0a2ff; /* Change the text color when hovered */
+        text-decoration: underline; /* Add an underline when hovered */
+        /* You can add more styles as needed */
+    }
+    
+    summary{
+        font-style: normal;
+    }
+    
+    details{
+        font-style: italic;
+    }
+    
+    footer{
+        background: #BBBBBB;
+        height:100px;
+        clear: both;
+    }
+    
+    img{
+        width: 100px;
+    }
+    
+    a {
+        
+        color: #666666;
+    }
+    
+    progress {
+        background: #ff0000;
+    }
+    
+    progress::-webkit-progress-bar {
+        background-color: #BBBBBB;	
+    }
+    
+    progress::-webkit-progress-value {
+        background-color: #666666 !important;
+    } 
+    progress::-moz-progress-bar {
+        background-color: #666666 !important;
+    }
