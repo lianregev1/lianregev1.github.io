@@ -3,6 +3,25 @@ body {
     overflow: hidden;
 }
 
+.dorothy {
+    width: 50px;
+    height: 80px;
+ /*  Taken from here: http://openbookproject.net/thinkcs/python/english3e/_images/duke_spritesheet.png*/ 
+    background: url('../duke_spritesheet.png') 0 0;
+    position: absolute;
+    top: 40px; /* Initial top position */
+    left: 50px; /* Initial left position */
+    /*transform: translate(-50%, -50%);*/
+    transition: left 4s, top 4s; /* Add transition for smooth movement */
+    animation: walkAnimation 1s steps(10) infinite;
+}
+
+@keyframes walkAnimation {
+    from { background-position: 0; }
+    to { background-position: -500px; }
+}
+
+
 div.moveRight {
 	
 	width: 100px;
@@ -75,20 +94,6 @@ div.moveRight4 {
 	
 }
 
-div.explose {
-    width: 50px;
-    height: 80px;
-    background: url(imgs/expexplose.png) 0 0 / 1942px 252px;
-    position: absolute;
-    top: 40px;
-    left: 50px;
-    transform: translate(-50%, -50%);
-    transition: left 4s, top 4s;
-    animation: walkAnimation 1s steps(10) infinite; 
-}
+  
 
-@keyframes walkAnimation {
-    from { background-position: 0; }
-    to { background-position: -500px; }
-}
 
