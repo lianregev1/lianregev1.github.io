@@ -38,10 +38,10 @@ body{
     
     .border {
         background-color: rgb(173, 230, 197);
-        width: 300px;
-        border: 15px solid rgb(234, 0, 255);
-        padding: 10px;
-        margin: 25px;
+        width: 260px;
+        border: 10px solid rgb(234, 0, 255);
+        padding: 5px;
+        margin: 0px;
         text-align-last: center;
     }
     
