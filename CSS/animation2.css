@@ -27,7 +27,7 @@ div.moveRight {
 	width: 100px;
     height: 100px;
     margin: 10px;
-	background-color: red;
+	background-color: rgb(238, 255, 0);
     position: relative;
 	left:800px;
 	top: 0px;
