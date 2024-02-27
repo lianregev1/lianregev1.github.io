@@ -1,0 +1,14 @@
+body {
+    background-image: url('../imgs/friends/friends_dor_big.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin-top: 15%;
+    font-family: 'Rubik', sans-serif;
+    }
+
+h1 {
+    font-size: 200%;
+    font-style: italic;
+    color: #f5f168;
+}
