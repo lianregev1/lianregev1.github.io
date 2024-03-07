@@ -16,18 +16,19 @@
     <div onclick="showQuestion3 () ; "> שאלה שלישית </div>
     <div onclick="showQuestion4 () ; "> שאלה רביעית </div>
     <div onclick="showQuestion5 () ; "> שאלה חמישית </div>
-    <br><br/>
+    <br>
     <div id="girls">
         <img src = "imgs/friends/thegirls.gif" alt = "girls" style="width:200px;">
     </div>
 </section>
-
 <section id="first">
     <h2> 1. מה התחביב שלך? </h2>
-    <div> 1. בישול </div>
-    <div> 2. אופנה</div>
-    <div> 3. נגינה</div>
-    <br><br/>
+    <div id="Monica" class="mon answer" onclick="saveAnswerMonica () ; "> 1. בישול </div>
+    <br>
+    <div id="Rachel" class="rac answer" onclick="saveAnswerRachel () ; "> 2. אופנה</div>
+    <br>
+    <div id="Phoebe" class="pho answer" onclick="saveAnswerPhoebe () ; "> 3. נגינה</div>
+    <br><br>
     <div id="rachel">
         <img src = "imgs/friends/rachel.gif" alt = "rachel" style="width:150px;">
     </div>
@@ -35,10 +36,12 @@
 
 <section id="second">
     <h2> 2. איזה תוכנת אופי חזקה יותר אצלך? </h2>
-    <div> 1. מעופף/ת </div>
-    <div> 2. מפונק/ת </div>
-    <div> 3. חולה/ת ניקיון </div>
-    <br><br/>
+    <div id="Phoebe" class="pho answer" onclick="saveAnswerPhoebe () ; "> 1. מעופף/ת </div>
+    <br>
+    <div id="Rachel" class="rac answer" onclick="saveAnswerRachel () ; "> 2. מפונק/ת </div>
+    <br>
+    <div id="Monica" class="mon answer" onclick="saveAnswerMonica () ; "> 3. חולה/ת ניקיון </div>
+    <br><br>
     <div id="phibyFirst">
         <img src = "imgs/friends/phiby1.gif" alt = "phiby" style="width:150px;">
     </div>
@@ -46,10 +49,12 @@
 
 <section id="third">
     <h2> 3. לאיזה סוג של אנשים פחות תתחבר/י? </h2>
-    <div> 1. אנשים שלא מרכלים </div>
-    <div> 2. אנשים צרי אופקים ושמרנים </div>
-    <div> 3. אנשים בלאגניסטים </div>
-    <br><br/>
+    <div id="Rachel" class="rac answer" onclick="saveAnswerRachel () ; "> 1. אנשים שלא מרכלים </div>
+    <br>
+    <div id="Phoebe" class="pho answer" onclick="saveAnswerPhoebe () ; "> 2. אנשים צרי אופקים ושמרנים </div>
+    <br>
+    <div id="Monica" class="mon answer" onclick="saveAnswerMonica () ; "> 3. אנשים בלאגניסטים </div>
+    <br><br>
     <div id="phibySecond">
         <img src = "imgs/friends/phiby2.gif" alt = "phiby2" style="width:150px;">
     </div>
@@ -57,10 +62,12 @@
 
 <section id="fourth">
     <h2> 4. מה עונת השנה המועדפת עליך? </h2>
-    <div> 1. אביב </div>
-    <div> 2. קיץ </div>
-    <div> 3. סתיו </div>
-    <br><br/>
+    <div id="Rachel" class="rac answer" onclick="saveAnswerRachel () ; "> 1. אביב </div>
+    <br>
+    <div id="Monica" class="mon answer" onclick="saveAnswerMonica () ; "> 2. קיץ </div>
+    <br>
+    <div id="Phoebe" class="pho answer" onclick="saveAnswerPhoebe () ; "> 3. סתיו </div>
+    <br><br>
     <div id="monica">
         <img src = "imgs/friends/monica.gif" alt = "monica" style="width:150px;">
     </div>
@@ -68,16 +75,20 @@
 
 <section id="fifth">
     <h2> 5. מי הכי חתיך בעינייך? </h2>
-    <div> 1. צ'נדלר </div>
-    <div> 2. רוס </div>
-    <div> 3. ג'ואי </div>
-    <br><br/>
+    <div id="Monica" class="mon answer" onclick="saveAnswerMonica () ; "> 1. צ'נדלר </div>
+    <br>
+    <div id="Rachel" class="rac answer" onclick="saveAnswerRachel () ; "> 2. רוס </div>
+    <br>
+    <div id="Phoebe" class="pho answer" onclick="saveAnswerPhoebe () ; "> 3. ג'ואי </div>
+    <br><br>
     <div id="boys">
         <img src = "imgs/friends/theboys.gif" alt = "boys" style="width:150px;">
     </div>
 </section>
-
-<button id="before" onclick="beforeQuestion ()">Before</button> <button id="next" onclick="nextQuestion ()">Next</button>
+<br>
+<button id="before" onclick="beforeQuestion ()">קודם</button> <button id="next" onclick="nextQuestion ()">הבא</button>
+<br>
+<button id="submit" onclick="resultQuestion ()">הגש</button>
 
 </body>
 </html>

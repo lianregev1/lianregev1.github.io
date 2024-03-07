@@ -12,3 +12,10 @@ h1 {
     font-style: italic;
     color: #f5f168;
 }
+.answer {
+    display: inline-block;
+}
+.answer:hover {
+    background-color: #f0a2ff;
+    display: inline-block;
+}
