@@ -19,3 +19,16 @@ h1 {
     background-color: #f0a2ff;
     display: inline-block;
 }
+p {
+    font-size: 130%;
+    text-align: center;
+    display: block;
+    margin: 10% auto; /* Changed margin to 10% top and bottom, and 'auto' for left and right */
+    width: 70%; /* Adjust width as needed */
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Rubik', sans-serif;
+}

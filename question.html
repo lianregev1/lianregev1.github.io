@@ -9,19 +9,19 @@
 </head>
 <body onload="hideQuestion () ; ">
 
-<h1 onclick="hideQuestion () ; ">מוניקה, רייצ'ל או פיבי?</h1>
-<section>
+<h1 onclick="hideQuestion () ; " id="title">מוניקה, רייצ'ל או פיבי?</h1>
+<section class="menu">
     <div onclick="showQuestion1 () ; "> שאלה ראשונה </div>
-    <div onclick="showQuestion2 () ; "> שאלה שניה </div> 
-    <div onclick="showQuestion3 () ; "> שאלה שלישית </div>
-    <div onclick="showQuestion4 () ; "> שאלה רביעית </div>
-    <div onclick="showQuestion5 () ; "> שאלה חמישית </div>
+    <div onclick="showQuestion2 (); "> שאלה שניה </div> 
+    <div onclick="showQuestion3 (); "> שאלה שלישית </div>
+    <div onclick="showQuestion4 (); "> שאלה רביעית </div>
+    <div onclick="showQuestion5 (); "> שאלה חמישית </div>
     <br>
     <div id="girls">
         <img src = "imgs/friends/thegirls.gif" alt = "girls" style="width:200px;">
     </div>
 </section>
-<section id="first">
+<section id="first" class="question">
     <h2> 1. מה התחביב שלך? </h2>
     <div id="Monica" class="mon answer" onclick="saveAnswerMonica () ; "> 1. בישול </div>
     <br>
@@ -34,7 +34,7 @@
     </div>
 </section>
 
-<section id="second">
+<section id="second" class="question">
     <h2> 2. איזה תוכנת אופי חזקה יותר אצלך? </h2>
     <div id="Phoebe" class="pho answer" onclick="saveAnswerPhoebe () ; "> 1. מעופף/ת </div>
     <br>
@@ -47,7 +47,7 @@
     </div>
 </section>
 
-<section id="third">
+<section id="third" class="question">
     <h2> 3. לאיזה סוג של אנשים פחות תתחבר/י? </h2>
     <div id="Rachel" class="rac answer" onclick="saveAnswerRachel () ; "> 1. אנשים שלא מרכלים </div>
     <br>
@@ -60,7 +60,7 @@
     </div>
 </section>
 
-<section id="fourth">
+<section id="fourth" class="question">
     <h2> 4. מה עונת השנה המועדפת עליך? </h2>
     <div id="Rachel" class="rac answer" onclick="saveAnswerRachel () ; "> 1. אביב </div>
     <br>
@@ -73,7 +73,7 @@
     </div>
 </section>
 
-<section id="fifth">
+<section id="fifth" class="question">
     <h2> 5. מי הכי חתיך בעינייך? </h2>
     <div id="Monica" class="mon answer" onclick="saveAnswerMonica () ; "> 1. צ'נדלר </div>
     <br>
@@ -81,14 +81,92 @@
     <br>
     <div id="Phoebe" class="pho answer" onclick="saveAnswerPhoebe () ; "> 3. ג'ואי </div>
     <br><br>
-    <div id="boys">
+    <div id="boys" class="question">
         <img src = "imgs/friends/theboys.gif" alt = "boys" style="width:150px;">
     </div>
 </section>
+
+<section id="finalMonica" class="result">
+    <h1>יצאת מוניקה גלר!</h1>
+    <p>סביר להניח שאתם הכי נקיים בחבורה שלכם.
+        אוהבים לדאוג לכולם אבל גם להיות שתלטנים.
+        אתם הכי תחרותיים שיש ובעלי שאיפות מאוד גבוהות,
+        מה שבטוח כולם רוצים להיות סביבכם ותכלס הכי לא יכולים בלעדיכם.
+    </p>
+    <br>
+    <div id="picMonica">
+        <img src ="imgs/friends/monica_final.gif" alt="picmonica" style="width: 200px;">
+    </div>
+</section>
+
+<section id="finalRachel" class="result">
+    <h1>יצאת רייצ'ל גרין!</h1>
+    <p>יש לכם חוש סטייל מהמם וכישרון להתעדכן בטרנדים האחרונים.
+        למרות שלפעמים אתם מרוכזים בעצמכם, עמוק בפנים אכפת לך מהחברים שלכם.
+        למרות המכשולים שעומדים בפניכם בחיים, אתם לא וותרנים
+        ורודפים אחרי החלומות שלכם בנחישות.
+    </p>
+    <br>
+    <div id="picRachel">
+        <img src ="imgs/friends/rachel_final.gif" alt="picrachel" style="width: 200px;">
+    </div>
+</section>
+
+<section id="finalPhoebe" class="result">
+    <h1>יצאת פיבי בופה!</h1>
+    <p>אתם הכי היצירתיים והמוזרים בחבורה שלכם.
+        הגישה שלכם לחיים תמיד מסקרנת את מי שסובב אותכם.
+        אתם בעלי חוש הומור מעולה ומוכנים להושיט יד לאלו הזקוקים.
+        אצלכם קריוקי זה בנשמה ותמיד תקפצו על ההזדמנות לנגן ולשיר לכולם.
+    </p>
+    <br>
+    <div id="picPhoebe">
+        <img src ="imgs/friends/phiby_final.gif" alt="picphoebe" style="width: 200px;">
+    </div>
+</section>
+
+<section id="finalMonRac" class="result">
+    <h1>יצאת מוניקה ורייצ'ל!</h1>
+    <p>אתם השילוב המושלם של ניקיון וסטייל.
+        האופי האכפתי שלכם, יחד עם מגע של אסרטיביות, הופכים אותכם למנהיגים טבעיים בין חבריכם.
+        השילוב של השאפתנות והנחישות שלכם,
+        נותנים השראה לסובבים אותכם להגיע למטרותיהם.
+    </p>
+    <br>
+    <div id="picPhoebe">
+        <img src ="imgs/friends/monica_rachel.gif" alt="picphoebe" style="width: 200px;">
+    </div>
+</section>
+
+<section id="finalMonPho" class="result">
+    <h1>יצאת מוניקה ופיבי!</h1>
+    <p>אתם שטלתנים בעלי חוש הומור.
+        כשאתם מבשלים אתם שרים בכל קולות, ולרוב מפתיעים עם מנות יצרתיות.
+        החברים שלכם מעריצים את היכולת שלכם לאזן בין פרקטיות ליצרתיות,
+        מה שהופך אותכם לבעלי חשיבות יתרה בחייהם.  
+    </p>
+    <br>
+    <div id="picPhoebe">
+        <img src ="imgs/friends/monica_phiby.gif" alt="picphoebe" style="width: 200px;">
+    </div>
+</section>
+
+<section id="finalRacPho" class="result">
+    <h1>יצאת רייצ'ל ופיבי!</h1>
+    <p>אתם בעלי סטייל יצרתי ברמות.
+        ספונטניים ובעלי חוויות משוגעות, עם רצון להתפנק ככל שאפשר.
+        האישיות הדינמית שלכם משלב את הטוב משני העולמות,
+        והופכת אותכם בחבורה לאהובים, ובלתי ניתנים להחלפה.
+    </p>
+    <br>
+    <div id="picPhoebe">
+        <img src ="imgs/friends/rachel_phiby.gif" alt="picphoebe" style="width: 200px;">
+    </div>
+</section>
 <br>
-<button id="before" onclick="beforeQuestion ()">קודם</button> <button id="next" onclick="nextQuestion ()">הבא</button>
+<button id="before" class="buttons">הקודם</button> <button id="next" class="buttons">הבא</button>
 <br>
-<button id="submit" onclick="resultQuestion ()">הגש</button>
+<button id="submit" class="buttons" onclick="resultQuestion ()">הגש</button>
 
 </body>
 </html>
