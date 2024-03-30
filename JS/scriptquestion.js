@@ -11,7 +11,7 @@ function hideQuestion () {
     document.getElementById("third").style.display = 'none';
     document.getElementById("fourth").style.display = 'none';
     document.getElementById("fifth").style.display = 'none';
-    document.getElementById("girls").style.display = 'block';
+    document.getElementById("girls").style.display = 'none';
     for (var i = 0; i < results.length; i++) {
         results[i].style.display = 'none';
     } 
