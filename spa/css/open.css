@@ -1,0 +1,18 @@
+body {
+    margin-top: 50%;
+    background-image: url('../imgs/DogPic.jpeg');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#start {
+	display: block;
+	margin: 100px;
+    color: aliceblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 80px; /* Increase the font size */
+    position: absolute; /* Change position to absolute for precise control */
+    top: 50%; /* Adjust top position */
+    left: 70%; /* Adjust left position */
+    text-decoration: none; /* Remove underline from link */
+}
