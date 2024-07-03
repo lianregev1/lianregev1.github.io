@@ -88,16 +88,12 @@ function initState() {
 	}
 	
 	function choose(q, a) {
-		console.log("choose(" + q + ", " + a + "), selectedAnswer: " + selectedAnswers[q] );
-		if (a == selectedAnswers[q]) {
-			unmark(q, a);
-			selectedAnswers[q] = NO_ANSWER;
-		} else {
-			if (selectedAnswers[q] != NO_ANSWER) {
-				unmark(q,selectedAnswers[q]);
-			}
+		console.log("choose(" + q + ", " + a + "), selectedAnswer: " + selectedAnswers[q]);
+		if (selectedAnswers[q] === NO_ANSWER) {
 			mark(q, a);
 			selectedAnswers[q] = a;
+		} else {
+			console.log("Answer already chosen for question " + q);
 		}
 	}
 
