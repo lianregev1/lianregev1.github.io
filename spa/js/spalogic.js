@@ -4,7 +4,6 @@ document.body.onload = function () {
 	document.getElementById("prev").onclick = prev;
 	document.getElementById("next").onclick = next;
 
-	    // Mark the first answer for each question as selected and marked
 		for (var i = 0; i < questions.length; i++) {
 			choose(i, 1); // Selecting the first answer (assuming answers are 1-indexed)
 		}
