@@ -3,6 +3,11 @@ document.body.onload = function () {
 	initRendering();
 	document.getElementById("prev").onclick = prev;
 	document.getElementById("next").onclick = next;
+
+	    // Mark the first answer for each question as selected and marked
+		for (var i = 0; i < questions.length; i++) {
+			choose(i, 1); // Selecting the first answer (assuming answers are 1-indexed)
+		}
 }
 
 
@@ -35,7 +40,7 @@ function initState() {
 			question += "</div><!--End of Question " + i + " -->";
 			console.log (question);
 			document.getElementById("questions").innerHTML += question;			
-		}	
+		}
 			
 		hideAll();
 		showQuestion(0);
