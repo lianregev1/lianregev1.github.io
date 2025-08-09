@@ -135,12 +135,24 @@
 
   let obstacles = [];
 
-  // Igloo now spawns after targetDistance and moves in-world at ground speed.
+  // ---------- Igloo image (your file) ----------
+  // Keep Igloo.png in the SAME FOLDER as this HTML file.
+  const iglooImg = new Image();
+  iglooImg.src = 'Igloo.png';
+  let iglooImgReady = false;
+  iglooImg.onload = () => { iglooImgReady = true; };
+
+  // Igloo spawns after target distance; actual size uses the PNG's native resolution.
+  // PNG provided is ~256x178; we draw it 1:1 on the 1280x720 canvas.
+  const IGLOO_SCALE = 1.0; // change if you want bigger/smaller
   const igloo = {
     active:false,
     x: 0, y: WORLD.groundY,
-    w:170, h:120,
-    door:{ w:52, h:40, offsetX:-26, offsetY:-20 } // relative to igloo origin (top-left when drawing base rect)
+    w: () => (iglooImg.width||256) * IGLOO_SCALE,
+    h: () => (iglooImg.height||178) * IGLOO_SCALE,
+    // Door rectangle inside the image (relative to the image's top-left)
+    // Tuned for the provided art: a left-front arched entry.
+    doorModel: { x: 36, y: 92, w: 78, h: 86 } // tweak if needed
   };
 
   // Runtime
@@ -254,8 +266,7 @@
     if (!igloo.active && distance >= WORLD.targetDistance){
       igloo.active = true;
       igloo.x = canvas.width + 50; // start just off-screen right
-      // optional: stop spawning more obstacles once igloo appears
-      spawnTimer = Infinity;
+      spawnTimer = Infinity;       // stop new obstacles
     }
 
     // Spawn obstacles while igloo not present
@@ -278,20 +289,22 @@
 
     // Move igloo if active
     if (igloo.active){
-      igloo.x -= speed*dt; // same parallax as ground
-      // Win when penguin reaches the igloo DOOR
+      igloo.x -= speed*dt;
+      // Collision with igloo door (use image rect)
+      const w = igloo.w(), h = igloo.h();
+      const drawX = igloo.x - w/2;
+      const drawY = igloo.y - h; // top-left of image
       const door = {
-        x: igloo.x + igloo.door.offsetX + igloo.w/2,
-        y: igloo.y + igloo.door.offsetY,
-        w: igloo.door.w,
-        h: igloo.door.h
+        x: drawX + igloo.doorModel.x * IGLOO_SCALE,
+        y: drawY + igloo.doorModel.y * IGLOO_SCALE,
+        w: igloo.doorModel.w * IGLOO_SCALE,
+        h: igloo.doorModel.h * IGLOO_SCALE
       };
       const pengBox = { x: penguin.x+8, y: penguin.y-penguin.h+10, w: penguin.w-16, h: penguin.h-12 };
       if (collide(pengBox, door)) { end(true); }
-      // If igloo somehow goes past the penguin without collision (e.g., player jumped over door), still allow collision with full igloo to win
-      const iglooBox = { x: igloo.x - igloo.w/2 + 85, y: igloo.y - 100, w: igloo.w, h: igloo.h };
+      // Backup: any contact with the igloo body also counts
+      const iglooBox = { x: drawX + 10, y: drawY + 20, w: w - 20, h: h - 20 };
       if (!youWin && collide(pengBox, iglooBox)) { end(true); }
-      // Clean up if it moved off-screen left (missed) -> keep running (survival) or treat as fail? We'll let player continue; igloo won't respawn this run.
     }
 
     // Physics
@@ -315,12 +328,11 @@
     // Draw
     ctx.clearRect(0,0,canvas.width,canvas.height);
     let scroll = distance;
-    let groundOffset = scroll % canvas.width;
-    layers.forEach(L => L.draw(L.factor * scroll, groundOffset));
+    layers.forEach(L => L.draw(L.factor * scroll));
 
     obstacles.forEach(o => drawObstacle(o));
 
-    // Draw igloo if active (fixed scale, “real” object to reach)
+    // Draw igloo if active (PNG sprite)
     if (igloo.active) drawIglooAt(igloo.x, igloo.y);
 
     drawPenguin();
@@ -400,32 +412,18 @@
     }
   }
 
-  // NEW: fixed-size igloo renderer at (x,y)
+  // NEW: igloo sprite render at (x,y) using your PNG
   function drawIglooAt(x, y){
-    ctx.save();
-    // Base position aligns so that (x,y) is ground baseline at center-ish of igloo
-    ctx.translate(x, y);
-    ctx.translate(0, -40); // lift to sit on ground
-
-    // main dome
-    ctx.fillStyle='#e8f9ff';
-    ctx.beginPath(); ctx.ellipse(0,0,90,60,0,0,Math.PI*2); ctx.fill();
-
-    // bricks
-    ctx.strokeStyle='#d0e9f7'; ctx.lineWidth=2;
-    for(let r=-60;r<=20;r+=16){
-      ctx.beginPath();
-      const t = 1 - (r+60)/120;
-      ctx.ellipse(0,r,90*t, 60*t, 0, 0, Math.PI*2); ctx.stroke();
+    const w = igloo.w(), h = igloo.h();
+    const drawX = x - w/2;
+    const drawY = y - h;
+    if (iglooImgReady){
+      ctx.drawImage(iglooImg, drawX, drawY, w, h);
+    } else {
+      // tiny fallback if image isn't ready yet
+      ctx.fillStyle = '#dcefff';
+      ctx.fillRect(drawX, drawY, w, h);
     }
-
-    // door (use same door dims for collision)
-    ctx.fillStyle='#a7c8da';
-    const doorX = igloo.door.offsetX + igloo.w/2;
-    const doorY = igloo.door.offsetY + 40; // compensate translate
-    roundRect(doorX, doorY, igloo.door.w, igloo.door.h, 12, true, false);
-
-    ctx.restore();
   }
 
   function drawPenguin(){
